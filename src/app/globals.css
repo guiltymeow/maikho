@@ -1,0 +1,303 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('/fonts/Cinzel-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('/fonts/Cinzel-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('/fonts/Cinzel-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CinzelDecorative';
+  src: url('/fonts/CinzelDecorative-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CinzelDecorative';
+  src: url('/fonts/CinzelDecorative-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CinzelDecorative';
+  src: url('/fonts/CinzelDecorative-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RhythemSignature';
+  src: url('/fonts/RhythemSignature-GO8vg.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@keyframes arcUpward {
+  0% {
+      transform: translateY(100px); /* Start from below */
+      clip-path: ellipse(100% 0% at 50% 100%); /* Small curved shape at the bottom */
+      opacity: 0;
+  }
+  50% {
+      transform: translateY(0); /* Move upward */
+      clip-path: ellipse(100% 50% at 50% 100%); /* Expanding upwards */
+      opacity: 0.5;
+  }
+  75% {
+      transform: translateY(0); /* Keep it at the same position */
+      clip-path: ellipse(100% 80% at 50% 100%); /* Further expanding upwards */
+      opacity: 0.75; /* Slightly more visible */
+  }
+  100% {
+      transform: translateY(0); /* Fully upward */
+      clip-path: inset(0 0 0 0); /* Full screen cover */
+      opacity: 1; /* Fully visible */
+  }
+}
+
+.animateArcUpward {
+  animation: arcUpward 0.3s ease-out forwards; /* Apply the arc animation */
+}
+
+
+@keyframes disappearAndMoveRight {
+  0% {
+    opacity: 1; /* Fully visible */
+    transform: translateX(0); /* Initial position */
+  }
+  100% {
+    opacity: 0; /* Fully transparent */
+    transform: translateX(100px); /* Move 100px to the right */
+  }
+}
+
+.animateDisappearAndMoveRight {
+  animation: disappearAndMoveRight 0.5s ease-out forwards;
+}
+
+
+
+@keyframes baseline {
+  0% {
+      transform: translateY(0);
+      opacity: 0;
+  }
+  50% {
+      transform: translateY(-10px);
+      opacity: 1;
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+
+
+@keyframes baseline {
+  0% {
+    transform: translateY(0);
+    opacity: 0; /* Start invisible */
+  }
+  50% {
+    transform: translateY(-10px);
+    opacity: 1; /* Fade in */
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1; /* Stay visible */
+  }
+}
+
+.baseline-animation {
+  animation: baseline 1s ease-in-out forwards;
+  opacity: 0; /* Start invisible */
+}
+
+.baseline-animation:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.baseline-animation:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.baseline-animation:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+.baseline-animation:nth-child(4) {
+  animation-delay: 1.2s;
+}
+
+.baseline-animation:nth-child(5) {
+  animation-delay: 1.5s;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-Black.ttf') format('truetype');
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-Light.ttf') format('truetype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-Thin.ttf') format('truetype');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
