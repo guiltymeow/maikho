@@ -1,12 +1,9 @@
 'use client';
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import Opening from "../animation/opening";
 import Navigation from "../Navigation/navigation";
-import Skills from "../components/Skilss";
-import CommentSection from "../components/commentsection";
+import Link from "next/link";
 import MyFooter from "../components/MyFooter";
-import Projects from "../components/project";
-import Link from "next/link";  // Assuming you need to import Link
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,12 +21,12 @@ export default function Home() {
   ];
   const [currentBackground, setCurrentBackground] = useState(0);
 
-  const backgroundTexts = [
+  const backgroundTexts = useMemo(() => [
     "DIGITAL MARKETING",
     "BRANDING",
     "MOBILE DESIGN AND DEVELOPMENT",
     "WEB DESIGN AND DEVELOPMENT",
-  ];
+  ], []);
 
   const [currentText, setCurrentText] = useState(backgroundTexts[0]);
 
@@ -90,7 +87,8 @@ export default function Home() {
           <>
             {/* Hero Section */}
             <section
-              className={`w-full h-screen m-0 p-0 bg-cover bg-center bg-no-repeat relative ${isMenuOpen ? "overflow-hidden" : ""}`}
+              className={`w-full h-screen m-0 p-0 bg-cover bg-center bg-no-repeat relative ${isMenuOpen ? "overflow-hidden" : ""
+                }`}
             >
               {/* Navbar */}
               <header className="fixed top-0 left-0 w-full bg-black/0 text-white m-0 z-30 shadow-md">
@@ -113,7 +111,7 @@ export default function Home() {
               ></div>
 
               {/* Main Content */}
-              <div className="mt-[30vh] text-center text-white relative z-10 px-4">
+              <div className="mt-[30vh] text-center text-white relative z-10 px-4 ">
                 <h1 className="text-[14px] font-bold font-cinzel sm:text-[16px] md:text-[18px]">
                   PROVIDE
                 </h1>
@@ -191,7 +189,8 @@ export default function Home() {
 
             {/* Spacer Section */}
             <section
-              className={`w-full h-[500px] m-0 p-0 bg-cover bg-center bg-no-repeat ${isMenuOpen ? "pointer-events-none" : ""}`}
+              className={`w-full h-[500px] m-0 p-0 bg-cover bg-center bg-no-repeat ${isMenuOpen ? "pointer-events-none" : ""
+                }`}
               style={{
                 backgroundImage: `url('/Background/spacer.png')`,
               }}
@@ -201,53 +200,27 @@ export default function Home() {
                 className="flex flex-col justify-center items-center h-full space-y-4 text-center"
               >
                 <p
-                  className={`text-black font-regular text-[10px] ${isDivVisible ? "baseline-animation" : ""}`}
+                  className={`text-black font-regular text-[10px] ${isDivVisible ? "baseline-animation" : ""
+                    }`}
                 >
                   _____________________
                 </p>
                 <h2
-                  className={`text-black font-regular text-[34px] font-cinzel opacity-80 ${isDivVisible ? "baseline-animation" : ""}`}
+                  className={`text-yellow-400 font-regular text-[102px] font-cinzel opacity-80 ${isDivVisible ? "baseline-animation" : ""
+                    }`}
                 >
-                  I Don&apos;t just build a website,
-                </h2>
-                <h2
-                  className={`text-black font-regular text-[34px] font-cinzel opacity-80 ${isDivVisible ? "baseline-animation" : ""}`}
-                >
-                  I build a website that sells.
-                </h2>
-                <p
-                  className={`text-black text-center font-regular text-[16px] font-cinzel opacity-80 ${isDivVisible ? "baseline-animation" : ""}`}
-                >
-                  Most developers and designers can build stunning websites, but many miss<br />
-                  the mark when it comes to creating websites that actually sell. That’s <br />
-                  where I stand out. As a Marketing Management graduate, I combine design <br />
-                  expertise with proven marketing strategies to craft high-converting websites that drive results.
-                </p>
-                <h2
-                  className={`text-black text-center font-regular text-[60px] font-cinzel opacity-80 ${isDivVisible ? "baseline-animation" : ""}`}
-                >
-                  Projects
+                  UNDER MAINTENANCE
                 </h2>
               </div>
             </section>
-            <section className="bg-white w-full ">
-              <div className="w-full h-auto bg-white mb-[100px]">
-                <Projects />
+            <div className="bg-white w-full h-auto">
+              <div>
+                <MyFooter />
               </div>
-            </section>
+            </div>
           </>
         )
       )}
-
-      {/* Section with Skills */}
-      {!loading && hasShrunk && (
-        <section className="w-full h-auto px-0 bg-white">
-          <Skills />
-          <div className="w-full h-[200px] bg-white"></div>
-          <CommentSection />
-          <MyFooter />
-        </section>
-      )}
-    </main>
+    </main >
   );
 }

@@ -7,7 +7,7 @@ const CustomButton = ({ text, onClick, className, type = "button" }) => {
         <button
             type={type}
             onClick={onClick}
-            className={`px-7 py-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300 ease-in-out relative ${className}`}
+            className={`px-7 py-4 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-gray-800 transition duration-300 ease-in-out relative ${className}`}
         >
             <span className="flex items-center justify-center">
                 {/* Main text of the button */}

@@ -47,7 +47,7 @@ const SpacerImage = () => {
         <div
             className={`w-full h-[2000px] bg-cover bg-center bg-no-repeat relative`}
             style={{
-                backgroundImage: "url('/Background/spacer 2.png')",
+                backgroundImage: "url('/Background/spacer2.png')",
             }}
         >
             {/* Container for Digital Marketing */}

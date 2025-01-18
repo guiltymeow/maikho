@@ -146,15 +146,12 @@ export default function Navigation() {
                 <Link href="/projects" className="text-[50px] opacity-[0.8] hover:text-white hover:opacity-100 font-cinzel" onClick={toggleMenu}>
                     Projects
                 </Link>
-                <Link href="/blog" className="text-[50px] opacity-[0.8] hover:text-white hover:opacity-100 font-cinzel" onClick={toggleMenu}>
-                    Blogs
+                <Link href="/Github" className="text-[50px] opacity-[0.8] hover:text-white hover:opacity-100 font-cinzel" onClick={toggleMenu}>
+                    Github
                 </Link>
 
                 {/* Centered Text */}
-                <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white text-center">
-                    <p className="font-cinzel text-[15px]">CONTACT ME</p>
-                    <p className="font-cinzel text-[15px]">amantemaikho@gmail.com</p>
-                </div>
+               
                 <div className="border-t border-white w-[65%] mx-auto mb-2 opacity-80 "></div>
 
                 {/* Bottom left positioned text */}

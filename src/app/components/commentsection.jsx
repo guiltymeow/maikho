@@ -1,6 +1,6 @@
 // CommentSection.jsx
 import React, { useState, useEffect } from "react";
-import MyFooter from "./MyFooter"; // Import the MyFooter component
+
 
 const CommentSection = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -42,16 +42,16 @@ const CommentSection = () => {
             <h2 className="text-center text-[48px] sm:text-[56px] md:text-[64px] font-regular mb-6 opacity-90">
                 Testimonials
             </h2>
-            <h2 className="text-center text-[32px] sm:text-[38px] md:text-[42px] font-medium mb-4 opacity-90">
+            <h2 className="text-center text-[32px] sm:text-[38px] md:text-[42px] font-medium mb-4 opacity-80">
                 What my clients say
             </h2>
 
             <div className="testimonial-container flex justify-center mb-8 w-full px-4"> {/* w-full ensures full width */}
                 <div className="testimonial p-8 bg-white-500 rounded-lg shadow-lg text-center w-full sm:w-full md:w-full lg:w-full"> {/* Updated width to w-full */}
-                    <p className="text-xl sm:text-2xl md:text-3xl italic mb-4">
+                    <p className="text-sm sm:text-sm md:text-base italic mb-4 opacity-80">
                         &quot;{randomComments[currentSlide].comment}&quot;
                     </p>
-                    <p className="font-semibold text-lg sm:text-xl md:text-2xl">
+                    <p className="font-semibold text-lg sm:text-xl md:text-2xl opacity-90">
                         {randomComments[currentSlide].name}
                     </p>
                 </div>

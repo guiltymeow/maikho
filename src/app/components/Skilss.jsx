@@ -1,8 +1,9 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import { FaJsSquare, FaReact, FaWordpress, FaShopify } from 'react-icons/fa'; // React-icons for JavaScript, React, WordPress, Shopify
-import { SiCss3, SiHtml5, SiFirebase, SiNpm, SiAndroidstudio } from 'react-icons/si'; // Simple-icons for CSS3, HTML5, Firebase, npm, Android Studio
-import { DiJqueryLogo, DiJava } from 'react-icons/di'; // Di icons for jQuery and Java
+import { FaJsSquare, FaReact, FaWordpress, FaShopify } from 'react-icons/fa'; 
+import { SiCss3, SiHtml5, SiFirebase, SiNpm, SiAndroidstudio, SiFigma, SiCanva, SiVercel } from 'react-icons/si'; 
+import { DiJqueryLogo, DiJava } from 'react-icons/di'; 
+import { TbBrandThreejs } from 'react-icons/tb';
 
 const skills = [
     { name: "Java", Icon: DiJava },
@@ -16,42 +17,55 @@ const skills = [
     { name: "Firebase", Icon: SiFirebase },
     { name: "npm", Icon: SiNpm },
     { name: "Android Studio", Icon: SiAndroidstudio },
+    { name: "Vercel", Icon: SiVercel },
+    { name: "Three.js", Icon: TbBrandThreejs },
+    { name: "Figma", Icon: SiFigma },
+    { name: "Canva", Icon: SiCanva },
 ];
 
 const Skills = () => {
-    const [isSectionVisible, setIsSectionVisible] = useState(false);  // State for section visibility
-    const sectionRef = useRef(null);  // Reference for the section
+    const [isSectionVisible, setIsSectionVisible] = useState(false);  
+    const sectionRef = useRef(null); 
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    setIsSectionVisible(true);  // Set section as visible when in view
+                    setIsSectionVisible(true);  
                 }
             },
-            { threshold: 0.2 }  // Trigger when 20% of the section is in view
+            { threshold: 0.2 }  
         );
 
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
+        const currentSectionRef = sectionRef.current;
+
+        if (currentSectionRef) {
+            observer.observe(currentSectionRef);
         }
 
         return () => {
-            // Cleanup observer when component unmounts
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-            if (sectionRef.current) {
-                observer.disconnect();
+            
+            if (currentSectionRef) {
+                observer.unobserve(currentSectionRef); 
             }
         };
-    }, []); // Dependency array is empty, observer will be set only on mount
+    }, []); 
 
     return (
         <section
-            ref={sectionRef}  // Added reference for section visibility tracking
+            ref={sectionRef}  
             className={`py-10 bg-white transition-all duration-700 ${isSectionVisible ? "opacity-100 transform translate-y-0" : "opacity-0 translate-y-10"}`}  // Apply bg-white for white background
         >
-            {/* Responsive Grid with Tailwind breakpoints */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8 mx-auto max-w-6xl px-4">
+            <div>
+                <h2
+                    className="font-cinzel text-[52px] text-center opacity-90"
+                    style={{ marginBottom: '100px' }}
+                >
+                    View Some Of My Skills
+                </h2>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-8 mx-auto max-w-6xl px-4">
                 {skills.map((skill, index) => (
                     <div
                         key={index}
@@ -59,7 +73,7 @@ const Skills = () => {
                     >
                         {/* Logo Circle with hover scale effect */}
                         <div className="w-24 h-24 flex items-center justify-center bg-black rounded-full group-hover:scale-110 transition duration-300 ease-in-out">
-                            <skill.Icon className="w-16 h-16 text-white" />
+                            <skill.Icon className="w-20 h-20 text-white" /> {/* Increased icon size */}
                         </div>
                         <p className="text-black mt-2">{skill.name}</p>
                     </div>

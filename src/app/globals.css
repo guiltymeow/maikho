@@ -301,3 +301,17 @@ body {
   font-style: italic;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px); /* You can adjust or remove translateY if not needed */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* This will make it "rise" into view */
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
