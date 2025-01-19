@@ -1,20 +1,21 @@
 'use client';
-import { useState, useEffect, useRef } from "react";
-import Opening from "../animation/opening";
+import { useState, useEffect, useMemo, useRef } from "react"; // Import useMemo here
+import Opening from "../animation/opening";  // Adjust the path if necessary
 import Navigation from "../Navigation/navigation";
 import Skills from "../components/Skilss";
 import CommentSection from "../components/commentsection";
 import MyFooter from "../components/MyFooter";
 import Projects from "../components/project";
-import Link from "next/link";  // Assuming you need to import Link
+import Link from "next/link"; // Assuming you need to import Link
 
-export default function Home() {
+export default function ProjectsPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isLoadingComplete, setIsLoadingComplete] = useState(false);
   const [hasShrunk, setHasShrunk] = useState(false);
   const [isDivVisible, setIsDivVisible] = useState(false);
   const [hasAnimatedOnce, setHasAnimatedOnce] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const backgrounds = [
     "/Background/background-design-1.png",
@@ -24,12 +25,12 @@ export default function Home() {
   ];
   const [currentBackground, setCurrentBackground] = useState(0);
 
-  const backgroundTexts = [
+  const backgroundTexts = useMemo(() => [
     "DIGITAL MARKETING",
     "BRANDING",
     "MOBILE DESIGN AND DEVELOPMENT",
     "WEB DESIGN AND DEVELOPMENT",
-  ];
+  ], []); // Using useMemo for optimization
 
   const [currentText, setCurrentText] = useState(backgroundTexts[0]);
 
@@ -77,6 +78,16 @@ export default function Home() {
 
     return () => clearInterval(interval);
   }, [backgrounds.length, backgroundTexts]);
+
+  // Detect if the user is on a mobile device
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
 
   return (
     <main className="flex flex-col items-center justify-between p-0 m-0 min-h-screen overflow-hidden">
@@ -201,22 +212,22 @@ export default function Home() {
                 className="flex flex-col justify-center items-center h-full space-y-4 text-center"
               >
                 <p
-                  className={`text-black font-regular text-[10px] ${isDivVisible ? "baseline-animation" : ""}`}
+                  className={`text-black font-regular text-[10px] ${isDivVisible && !isMobile ? "baseline-animation" : ""}`}
                 >
                   _____________________
                 </p>
                 <h2
-                  className={`text-black font-regular text-[34px] font-cinzel opacity-80 ${isDivVisible ? "baseline-animation" : ""}`}
+                  className={`text-black font-regular text-[34px] font-cinzel opacity-80 ${isDivVisible && !isMobile ? "baseline-animation" : ""}`}
                 >
                   I Don&apos;t just build a website,
                 </h2>
                 <h2
-                  className={`text-black font-regular text-[34px] font-cinzel opacity-80 ${isDivVisible ? "baseline-animation" : ""}`}
+                  className={`text-black font-regular text-[34px] font-cinzel opacity-80 ${isDivVisible && !isMobile ? "baseline-animation" : ""}`}
                 >
                   I build a website that sells.
                 </h2>
                 <p
-                  className={`text-black text-center font-regular text-[16px] font-cinzel opacity-80 ${isDivVisible ? "baseline-animation" : ""}`}
+                  className={`text-black text-center font-regular text-[16px] font-cinzel opacity-80 ${isDivVisible && !isMobile ? "baseline-animation" : ""}`}
                 >
                   Most developers and designers can build stunning websites, but many miss<br />
                   the mark when it comes to creating websites that actually sell. That’s <br />
@@ -224,7 +235,7 @@ export default function Home() {
                   expertise with proven marketing strategies to craft high-converting websites that drive results.
                 </p>
                 <h2
-                  className={`text-black text-center font-regular text-[60px] font-cinzel opacity-80 ${isDivVisible ? "baseline-animation" : ""}`}
+                  className={`text-black text-center font-regular text-[60px] font-cinzel opacity-80 ${isDivVisible && !isMobile ? "baseline-animation" : ""}`}
                 >
                   Projects
                 </h2>

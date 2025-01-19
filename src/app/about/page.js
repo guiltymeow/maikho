@@ -1,20 +1,21 @@
 'use client';
 import { useState, useEffect, useRef, useMemo } from "react";
-import Opening from "../animation/opening";
 import Navigation from "../Navigation/navigation";
 import Skills from "../components/Skilss";
 import CommentSection from "../components/commentsection";
 import MyFooter from "../components/MyFooter";
 import Link from "next/link";
 import About from "../components/aboutme";
+import Opening from "../animation/opening";
 
-export default function Home() {
+export default function AboutPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isLoadingComplete, setIsLoadingComplete] = useState(false);
   const [hasShrunk, setHasShrunk] = useState(false);
   const [isDivVisible, setIsDivVisible] = useState(false);
   const [hasAnimatedOnce, setHasAnimatedOnce] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); // Detect mobile devices
 
   const backgrounds = [
     "/Background/background-design-1.png",
@@ -42,6 +43,22 @@ export default function Home() {
   const onLoadingComplete = () => setIsLoadingComplete(true);
   const onShrinkComplete = () => setHasShrunk(true);
 
+  // Mobile detection function
+  const detectMobile = () => {
+    if (window.innerWidth <= 768) {
+      setIsMobile(true); // Set to true for mobile devices
+    }
+  };
+
+  useEffect(() => {
+    detectMobile(); // Detect on load
+
+    window.addEventListener('resize', detectMobile); // Detect on resize
+    return () => {
+      window.removeEventListener('resize', detectMobile); // Clean up on unmount
+    };
+  }, []);
+
   useEffect(() => {
     window.scrollTo(0, 0);
 
@@ -50,7 +67,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (!loading && animationDivRef.current && !hasAnimatedOnce) {
+    if (!loading && animationDivRef.current && !hasAnimatedOnce && !isMobile) {
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
@@ -64,7 +81,7 @@ export default function Home() {
       observer.observe(animationDivRef.current);
       return () => observer.disconnect();
     }
-  }, [loading, hasAnimatedOnce]);
+  }, [loading, hasAnimatedOnce, isMobile]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -91,8 +108,7 @@ export default function Home() {
             <>
               {/* Hero Section */}
               <section
-                className={`w-full h-screen m-0 p-0 bg-cover bg-center bg-no-repeat relative ${isMenuOpen ? "overflow-hidden" : ""
-                  }`}
+                className={`w-full h-screen m-0 p-0 bg-cover bg-center bg-no-repeat relative ${isMenuOpen ? "overflow-hidden" : ""}`}
               >
                 {/* Navbar */}
                 <header className="fixed top-0 left-0 w-full bg-black/0 text-white m-0 z-30 shadow-md">
@@ -108,14 +124,14 @@ export default function Home() {
 
                 {/* Background Image */}
                 <div
-                  className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
+                  className={`absolute top-0 left-0 w-full h-full bg-cover bg-center transition-all duration-1000 ease-in-out`}
                   style={{
                     backgroundImage: `url('${backgrounds[currentBackground]}')`,
                   }}
                 ></div>
 
                 {/* Main Content */}
-                <div className="mt-[30vh] text-center text-white relative z-10 px-4 ">
+                <div className="mt-[30vh] text-center text-white relative z-10 px-4">
                   <h1 className="text-[14px] font-bold font-cinzel sm:text-[16px] md:text-[18px]">
                     PROVIDE
                   </h1>
@@ -184,8 +200,7 @@ export default function Home() {
                         setCurrentBackground(index);
                         setCurrentText(backgroundTexts[index]);
                       }}
-                      className={`h-3 w-3 rounded-full cursor-pointer ${currentBackground === index ? "bg-white" : "bg-gray-400"
-                        }`}
+                      className={`h-3 w-3 rounded-full cursor-pointer ${currentBackground === index ? "bg-white" : "bg-gray-400"}`}
                     ></span>
                   ))}
                 </div>
@@ -193,8 +208,7 @@ export default function Home() {
 
               {/* Spacer Section */}
               <section
-                className={`w-full h-[500px] m-0 p-0 bg-cover bg-center bg-no-repeat ${isMenuOpen ? "pointer-events-none" : ""
-                  }`}
+                className={`w-full h-[500px] m-0 p-0 bg-cover bg-center bg-no-repeat ${isMenuOpen ? "pointer-events-none" : ""}`}
                 style={{
                   backgroundImage: `url('/Background/spacer.png')`,
                 }}
@@ -204,56 +218,53 @@ export default function Home() {
                   className="flex flex-col justify-center items-center h-full space-y-4 text-center"
                 >
                   <p
-                    className={`text-black font-regular text-[10px] ${isDivVisible ? "baseline-animation" : ""
-                      }`}
+                    className={`text-black font-regular text-[10px] ${isDivVisible && !isMobile ? "baseline-animation" : ""}`}
                   >
                     _____________________
                   </p>
                   <h2
-                    className={`text-black font-regular text-[34px] font-cinzel opacity-80 ${isDivVisible ? "baseline-animation" : ""
-                      }`}
+                    className={`text-black font-regular text-[34px] font-cinzel opacity-80 ${isDivVisible && !isMobile ? "baseline-animation" : ""}`}
                   >
                     ABOUT ME
                   </h2>
                   <h2
-                    className={`text-black font-regular text-[34px] font-cinzel opacity-80 ${isDivVisible ? "baseline-animation" : ""
-                      }`}
+                    className={`text-black font-regular text-[34px] font-cinzel opacity-80 ${isDivVisible && !isMobile ? "baseline-animation" : ""}`}
                   >
                     I’M DOING WEB DESIGN, AND
                   </h2>
                   <h2
-                    className={`text-black font-regular text-[34px] font-cinzel opacity-80 ${isDivVisible ? "baseline-animation" : ""
-                      }`}
+                    className={`text-black font-regular text-[34px] font-cinzel opacity-80 ${isDivVisible && !isMobile ? "baseline-animation" : ""}`}
                   >
                     MOBILE APP DEVELOPMENT.
                   </h2>
                   <h2
-                    className={`text-black text-[34px] ${isDivVisible ? "baseline-animation" : ""
-                      }`}
+                    className={`text-black text-[34px] ${isDivVisible && !isMobile ? "baseline-animation" : ""}`}
                     style={{ fontFamily: "RhythemSignature, sans-serif" }}
                   >
                     maikho amante
                   </h2>
                 </div>
               </section>
-              <div className="bg-white w-full h-auto"> 
+
+              {/* About, Skills, Comment, Footer */}
+              <div className="bg-white w-full h-auto">
                 <div className="mb-[200px]">
-                <About />
+                  <About />
                 </div>
                 <div className="mb-[100px]">
-                <Skills />
+                  <Skills />
                 </div>
                 <div className="mb-[100px]">
-                <CommentSection />
+                  <CommentSection />
                 </div>
                 <div>
-                <MyFooter />
-                </div>          
+                  <MyFooter />
+                </div>
               </div>
             </>
           )
         )}
-      </main >
+      </main>
     </>
   );
 }
