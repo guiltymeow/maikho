@@ -14,8 +14,8 @@ const Projects = () => {
                         height={300}
                         className="transform transition-transform duration-300 group-hover:scale-90"
                     />
-                    <div className="font-cinzel text-center text-[36px] mt-[20px] transform transition-transform duration-300 group-hover:scale-90">
-                        <h1>Bento Box </h1>
+                    <div className="font-cinzel text-center text-[24px] mt-[20px] transform transition-transform duration-300 group-hover:scale-90">
+                        <h1>Bento Box By Maikho </h1>
                     </div>
                 </div>
                 <div className="flex flex-col items-center group">
@@ -26,8 +26,9 @@ const Projects = () => {
                         height={300}
                         className="transform transition-transform duration-300 group-hover:scale-90"
                     />
-                    <div className="font-cinzel text-center text-[36px] mt-[20px] transform transition-transform duration-300 group-hover:scale-90">
-                        <h1>Pic Pop by Yenling</h1>
+                    <div className="font-cinzel text-center text-[24px] mt-[20px] transform transition-transform duration-300 group-hover:scale-90">
+                        <h1>PicPop By Yenling </h1>
+                        
                     </div>
                 </div>
             </div>
@@ -42,8 +43,8 @@ const Projects = () => {
                         height={300}
                         className="transform transition-transform duration-300 group-hover:scale-90"
                     />
-                    <div className="font-cinzel text-center text-[36px] mt-[20px] transform transition-transform duration-300 group-hover:scale-90">
-                        <h1>Quick qart </h1>
+                    <div className="font-cinzel text-center text-[24px] mt-[20px] transform transition-transform duration-300 group-hover:scale-90">
+                        <h1>Quick qart By Maikho</h1>
                     </div>
                 </div>
                 <div className="flex flex-col items-center group">
@@ -54,8 +55,8 @@ const Projects = () => {
                         height={300}
                         className="transform transition-transform duration-300 group-hover:scale-90"
                     />
-                    <div className="font-cinzel text-center text-[36px] mt-[20px] transform transition-transform duration-300 group-hover:scale-90">
-                        <h1>No problem </h1>
+                    <div className="font-cinzel text-center text-[24px] mt-[20px] transform transition-transform duration-300 group-hover:scale-90">
+                        <h1>No problem (Proposal)</h1>
                     </div>
                 </div>
             </div>
@@ -70,7 +71,7 @@ const Projects = () => {
                         height={300}
                         className="transform transition-transform duration-300 group-hover:scale-90"
                     />
-                    <div className="font-cinzel text-center text-[36px] mt-[20px] transform transition-transform duration-300 group-hover:scale-90">
+                    <div className="font-cinzel text-center text-[24px] mt-[20px] transform transition-transform duration-300 group-hover:scale-90">
                         <h1>Innocent Fox</h1>
                         <h1>Sponsor</h1>
                     </div>
