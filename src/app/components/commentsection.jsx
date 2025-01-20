@@ -11,7 +11,7 @@ const CommentSection = () => {
         { name: "Thomas", comment: "Maikho is very creative and stylish. He is easy to work with, he can do exactly what you visualize. He can easily understand the instructions and can apply it at once. We will get him again on our next project." },
         { name: "Aki", comment: "I am really impressed on how he work on our website. He was able to finish it in a timely manner and we are so glad with the website outcome. He was also really helpful on maintaining the website, especially in every question on how we can make it better. We highly recommend Maikho if you guys need a high quality website! Thank you so much!" },
         { name: "Banjeet", comment: "Exceeded all expectations with his exceptional website creation services. From start to finish, He demonstrated professionalism,creativity, and attention to detail. My website not only looks perfect but also functions flawlessly, helpful and user friendly, thanks to his expertise." },
-        { name: "Michael", comment: "Professional, reliable, and efficient. 10/10 would use again 👍🌟." }
+        { name: "Michael", comment: "Professional, reliable, and efficient. 10/10 would hire again 👍🌟." }
     ];
 
     // Auto change slide 
