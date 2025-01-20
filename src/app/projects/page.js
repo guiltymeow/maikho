@@ -212,12 +212,12 @@ export default function ProjectsPage() {
                 className="flex flex-col justify-center items-center h-full space-y-4 text-center"
               >
                 <p
-                  className={`text-black font-regular text-[10px] ${isDivVisible && !isMobile ? "baseline-animation" : ""}`}
+                  className={`text-black font-regular text-[10px] mt-[100px] ${isDivVisible && !isMobile ? "baseline-animation" : ""}`}
                 >
                   _____________________
                 </p>
                 <h2
-                  className={`text-black font-regular text-[34px] font-cinzel opacity-80 ${isDivVisible && !isMobile ? "baseline-animation" : ""}`}
+                  className={` text-black font-regular text-[34px] font-cinzel opacity-80 ${isDivVisible && !isMobile ? "baseline-animation" : ""}`}
                 >
                   I Don&apos;t just build a website,
                 </h2>
@@ -234,15 +234,17 @@ export default function ProjectsPage() {
                   where I stand out. As a Marketing Management graduate, I combine design <br />
                   expertise with proven marketing strategies to craft high-converting websites that drive results.
                 </p>
-                <h2
-                  className={`text-black text-center font-regular text-[60px] font-cinzel opacity-80 ${isDivVisible && !isMobile ? "baseline-animation" : ""}`}
-                >
-                  Projects
-                </h2>
               </div>
-            </section>
+            </section >
+            <div className="bg-white w-full h-auto ">
+            <h2
+              className={`text-black text-center mt-[200px]  font-regular text-[60px] font-cinzel opacity-80 ${isDivVisible && !isMobile ? "baseline-animation" : ""}`}
+            >
+              Projects
+            </h2>
+            </div>
             <section className="bg-white w-full ">
-              <div className="w-full h-auto bg-white mb-[100px]">
+              <div className="w-full h-auto bg-white mb-[200px] mt-[300px]">
                 <Projects />
               </div>
             </section>
