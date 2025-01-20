@@ -9,12 +9,12 @@ const CommentSection = () => {
     const randomComments = [
         { name: "InnocentFox", comment: "This service is absolutely fantastic! I’m beyond thrilled with the results and couldn’t be more impressed. The quality, attention to detail, and over all experience have exceeded my expectations in every way. I’m genuinely amazed at how well everything turned out—truly top-notch!" },
         { name: "Thomas", comment: "Maikho is very creative and stylish. He is easy to work with, he can do exactly what you visualize. He can easily understand the instructions and can apply it at once. We will get him again on our next project." },
-        { name: "Aki", comment: "I am really impressed on how he work on our website. He was able to finish it in a timely manner and we are so glad with the website outcome. He was also really helpful on maintaining the website, especially in every question on how we can make it better. We highly recommend Maikho if you guys need a high quality website! Thank youso much!" },
-        { name: "Banjeet", comment: "Exceeded all expectations with his exceptional website creations ervices. From start to finish, He demonstrated professionalism,creativity, and attention to detail. My website not only looks perfect but also functions flawlessly, helpful and user friendly, thanks to his expertise." },
+        { name: "Aki", comment: "I am really impressed on how he work on our website. He was able to finish it in a timely manner and we are so glad with the website outcome. He was also really helpful on maintaining the website, especially in every question on how we can make it better. We highly recommend Maikho if you guys need a high quality website! Thank you so much!" },
+        { name: "Banjeet", comment: "Exceeded all expectations with his exceptional website creation services. From start to finish, He demonstrated professionalism,creativity, and attention to detail. My website not only looks perfect but also functions flawlessly, helpful and user friendly, thanks to his expertise." },
         { name: "Michael", comment: "Professional, reliable, and efficient. 10/10 would use again 👍🌟." }
     ];
 
-    // Auto change slide every 5 seconds
+    // Auto change slide 
     useEffect(() => {
         const id = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % randomComments.length);
