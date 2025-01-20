@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import CustomButton from "./custombtn";
+
 
 const SpacerImage = () => {
     // Refs for each element
@@ -83,9 +83,6 @@ const SpacerImage = () => {
                         and achieve sustainable growth in the digital world. Let me help you turn
                         your online presence into a powerful tool for success.
                     </p>
-                    <div className="mt-[50px]">
-                    <CustomButton/>
-                    </div>              
                 </div>
             </div>
 
@@ -109,9 +106,6 @@ const SpacerImage = () => {
                         tailored mobile solutions that meet your unique needs. With a focus on developing high-
                         performance apps, I help you engage users, increase brand visibility, and drive business growth.
                     </p>
-                    <div className="mt-[50px]">
-                    <CustomButton/>
-                    </div>  
                 </div>
 
                 <Image
@@ -149,9 +143,7 @@ const SpacerImage = () => {
                         intuitive user experiences to powerful functionality and seamless integrations, I create creative web
                         solutions that align with your unique goals.
                     </p>
-                    <div className="mt-[50px]">
-                    <CustomButton/>
-                    </div>  
+
                 </div>
             </div>
 
