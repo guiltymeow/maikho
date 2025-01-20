@@ -21,6 +21,7 @@ const About = () => {
 
     // Intersection Observer for Text Section
     useEffect(() => {
+        const currentTextSection = textSectionRef.current; // Store ref value in a variable
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting && !animationCompleted) {
@@ -31,12 +32,12 @@ const About = () => {
             { threshold: 0.2 }
         );
 
-        if (textSectionRef.current) {
-            observer.observe(textSectionRef.current);
+        if (currentTextSection) {
+            observer.observe(currentTextSection);
         }
 
         return () => {
-            if (textSectionRef.current) observer.disconnect();
+            if (currentTextSection) observer.disconnect(); // Cleanup using the stored variable
         };
     }, [animationCompleted]);
 
@@ -51,7 +52,7 @@ const About = () => {
 
             return () => clearTimeout(timeout);
         }
-    }, [textVisible, currentTextIndex]);
+    }, [textVisible, currentTextIndex, paragraphs.length]); // Include paragraphs.length in dependencies
 
     return (
         <div
